@@ -1,0 +1,14 @@
+{% extends 'views/dashboard.html' %}
+
+{% block admin_content %}
+<div class="flex flex-col justify-center items-center">
+    <h2 class="text-4xl mb-3">{{ website.name }}</h2>
+    <div class="flex-1">
+        {% for p in all_pages %}
+            <a href="/page/{{ p.id }}" class="h-[10em] w-[10em] bg-blue-300 flex rounded justify-center items-center">
+                <p>{{ p.name }} Page</p>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock admin_content %}

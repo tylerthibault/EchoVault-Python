@@ -1,0 +1,24 @@
+<form action="/super/website/create" method="post">
+    <div class="form-section">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div class="form-section">
+        <label for="description">Description</label>
+        <textarea class="input" name="description" id="description" cols="30" rows="10"></textarea>
+    </div>
+    <div class="form-section">
+        <label for="user">Website belongs to </label>
+        <select class="border shadow rounded px-3 text-left" name="user_id" id="user_id">
+            <option hidden>Choose a Person</option>
+            {% for user in all_users %}
+            {% if user.level < 7 %}
+            <option value="{{ user.id }}">{{ user.first_name.capitalize() }} {{ user.last_name.capitalize() }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-section">
+        <button class="btn btn-success">Create Website</button>
+    </div>
+</form>

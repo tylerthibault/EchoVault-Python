@@ -1,0 +1,8 @@
+
+<div>
+    {% for w in websites %}
+    <a href="/website/{{ w.id }}" class="h-[10em] w-[10em] bg-blue-400 rounded shadow flex justify-center items-center">
+        <p>{{ w.name }}</p>
+    </a>
+    {% endfor %}
+</div>

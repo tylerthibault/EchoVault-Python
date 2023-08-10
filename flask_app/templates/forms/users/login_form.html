@@ -1,0 +1,19 @@
+<form action="/users/login" method="post">
+    <div class="form-section">
+        <label for="email">email</label>
+        <input type="text" name="email" id="email">
+        {% for message in get_flashed_messages(category_filter=['err_users_email_login']) %}
+        <p class="err-msg">{{message}}</p>
+        {% endfor %}
+    </div>
+    <div class="form-section">
+        <label for="password">password</label>
+        <input type="text" name="password" id="password">
+        {% for message in get_flashed_messages(category_filter=['err_users_password_login']) %}
+        <p class="err-msg">{{message}}</p>
+        {% endfor %}
+    </div>
+    <div class="form-section">
+        <button class="btn-success" type="submit">Login</button>
+    </div>
+</form>

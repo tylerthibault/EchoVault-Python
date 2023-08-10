@@ -1,0 +1,23 @@
+{% set path = request.path %}
+
+<nav class="flex gap-3 justify-center items-center">
+    <!-- genderal nav buttons -->
+    <ul class="flex justify-center items-center gap-3">
+        <li><a class="btn btn-secondary" href="/go_back">Back</a></li>
+        {% if path != '/dashboard' %}
+        <li><a href="/">Dashboard</a></li>
+        {% endif %}
+
+        {% if session['token']['level'] > 7 %}
+        <!-- Super admin specific nav buttons -->
+        <li><a href="/super/users">Users</a></li>
+        <li><a href="/super/websites">Websites</a></li>
+
+        {% else %}
+        <!-- admin specific nav buttons -->
+        {% endif %}
+
+    </ul>
+    <!-- Logout -->
+    <a class="btn btn-danger" href="/users/logout">Logout</a>
+</nav>

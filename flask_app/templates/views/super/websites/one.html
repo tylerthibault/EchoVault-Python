@@ -1,0 +1,24 @@
+{% extends 'views/dashboard.html' %}
+
+{% block super_content %}
+<div>
+    <h1 class="text-2xl text-center">{{ website.name }}</h1>
+    <p>{{ website.description }}</p>
+</div>
+<div class="grid grid-cols-6">
+    <div class="col-span-4">
+        <h2 class="subheading">All pages</h2>
+        {% for page in all_pages %}
+        <div class="flex justify-center items-center gap-3">
+            <a class="btn btn-primary" href="/page/{{ page.id }}">View</a>
+            <p>{{ page.name }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-span-2">
+        <h2 class="subheading">Create a Pages</h2>
+        {% include 'forms/pages/add.html' %}
+    </div>
+
+</div>
+{% endblock super_content %}

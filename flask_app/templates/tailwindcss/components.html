@@ -1,0 +1,36 @@
+<style type="text/tailwindcss">
+    @layer utilities {
+        /* buttons */
+        button, .btn {
+            @apply px-3 shadow rounded text-center duration-300;
+        }
+        button:hover, .btn:hover {
+            @apply opacity-80
+        }
+        .btn-danger {
+            @apply bg-red-400 text-white
+        }
+        .btn-primary {
+            @apply bg-blue-400
+        }
+        .btn-secondary {
+            @apply bg-yellow-400
+        }
+        .btn-success {
+            @apply bg-green-400
+        }
+
+        /* forms */
+        input, .input {
+            @apply text-center rounded border shadow;
+        }
+        .form-section {
+            @apply flex flex-col text-center justify-center items-center mb-3
+        }
+
+        /* Headings */
+        .subheading {
+            @apply text-2xl underline text-center capitalize py-3 mb-3
+        }
+    }
+  </style>

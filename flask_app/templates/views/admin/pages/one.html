@@ -1,0 +1,16 @@
+{% extends 'views/dashboard.html' %}
+
+{% block admin_content %}
+<div class="mb-3">
+    <h2 class="text-4xl text-center">{{ current_page.name }} Page Sections</h2>
+</div>
+<div class="grid grid-cols-3 gap-3">
+    {% for s in all_sections %}
+        <div class="border shadow p-3 rounded-lg">
+            {% with style = "flex flex-col gap-3" %}
+            {% include 'forms/sections/update.html' %}
+            {% endwith %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock admin_content %}

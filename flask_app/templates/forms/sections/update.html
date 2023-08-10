@@ -1,0 +1,28 @@
+
+
+<form class="{{ style }}" action="/section/{{ s.id }}/update" method="post">
+    <div class="col-span-2 form-section">
+        <label for="title"></label>
+        <input type="text" name="title" id="title" value="{{ s.title }}">
+    </div>
+    <div class="col-span-4 form-section">
+        <label for="content"></label>
+        <textarea class="input w-full" name="content" id="content">{{ s.content }}</textarea>
+    </div>
+    {% if session['token']['level'] > 7 %}
+    <div class="form-section">
+        <label for="page_id"></label>
+        <select class="input px-3" name="page_id" id="page_id">
+            <option value="{{ current_page.id }}">{{ current_page.name }}</option>
+            {% for p in all_pages %}
+            {% if p.id != current_page.id %}
+            <option value="{{ p.id }}">{{ p.name }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+    <div class="form-section">
+        <button class="btn-success">Update</button>
+    </div>
+</form>

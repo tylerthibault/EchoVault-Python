@@ -1,0 +1,12 @@
+{% with messages = get_flashed_messages(category_filter=['my_err_toast_msg']) %} <!-- declare a variable called messages -->
+{% if messages %} <!-- check if there are any messages -->
+<div class="fixed top-0 left-0 w-screen bg-yellow-400 flex flex-col justify-center items-center py-3 my-toast-container">
+    <button class="close-btn btn-danger" target="my-toast-container">Close</button>
+    {% for message in messages %} <!-- loop through the messages -->
+    <div>
+        <p>{{ message | safe }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
