@@ -21,9 +21,11 @@ def page_history():
                 session['history'] = history
 
 def page_back(qty=1):
+    page = request.path
     if 'page_history' not in session:
-        return redirect('/')
+        session['page_history'] = [page]
     last_page = ''
-    for time in range(qty):
-        last_page = session['page_history'].pop()
+    if len(session['page_history']) > 0:
+        for time in range(qty):
+            last_page = session['page_history'].pop()
     return last_page
