@@ -1,0 +1,11 @@
+{% extends 'views/dashboard.html' %}
+
+
+{% block user_content %}
+<form action="/section/{{ section.id }}/update" class="flex flex-col gap-3 justify-center items-center">
+    <input class="w-full" type="text" name="title" id="title" value="{{ section.title }}">
+    <textarea class="input w-full" name="content" id="content" cols="30" rows="10">{{ section.content }}</textarea>
+    <button class="btn btn-success">Update</button>
+
+</form>
+{% endblock user_content %}

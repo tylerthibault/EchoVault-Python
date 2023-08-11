@@ -9,12 +9,12 @@
         {% endif %}
 
         {% if session['token']['level'] > 7 %}
-        <!-- Super admin specific nav buttons -->
+        <!-- Super user specific nav buttons -->
         <li><a href="/super/users">Users</a></li>
         <li><a href="/super/websites">Websites</a></li>
 
         {% else %}
-        <!-- admin specific nav buttons -->
+        <!-- user specific nav buttons -->
         {% endif %}
 
     </ul>

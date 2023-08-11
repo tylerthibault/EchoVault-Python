@@ -24,4 +24,4 @@ def super_page_show(id):
     }
     if session['token']['level'] > super_level:
         return render_template('views/super/pages/one.html', **context)
-    return render_template('views/admin/pages/one.html', **context)
+    return render_template('views/user/pages/one.html', **context)

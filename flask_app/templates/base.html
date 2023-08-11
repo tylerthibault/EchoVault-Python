@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/4963ddc73f.js" crossorigin="anonymous"></script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     {% include 'tailwindcss/config.html' %}
     {% include 'tailwindcss/components.html' %}
@@ -24,7 +27,7 @@
     {% endblock base_content %}
 
 
-    {% include 'utilities/toast.html' %}
+    {% include 'utils/toast.html' %}
 
     <script src="{{ url_for('static', filename='js/global.js') }}"></script>
     {% block js %}

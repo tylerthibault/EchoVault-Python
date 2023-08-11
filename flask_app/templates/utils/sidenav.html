@@ -1,0 +1,18 @@
+<div class="w-full h-full bg-white flex flex-col">
+    <div class="mt-0 bg-blue-400 flex flex-col justify-center items-center h-[10em]">
+        <i class="fa-solid fa-user text-6xl"></i>
+        <p>{{ session['token']['first_name'].capitalize() }} {{ session['token']['last_name'].capitalize() }}</p>
+    </div>
+    <div class="mt-auto flex justify-center items-center">
+        <ul class="flex flex-col gap-3">
+            <li><a class="flex gap-3 hover:btn" href="/"><i class="text-xl fa-solid fa-house"></i>Home</a></li>
+            <li><span class="btn-disabled flex gap-3" href=""><i class="text-xl fa-solid fa-globe"></i>Websites</span></li>
+            <li><span class="btn-disabled flex gap-3" href=""><i class="text-xl fa-solid fa-gear"></i>Settings</span></li>
+        </ul>
+    </div>
+    <div class="mt-auto mb-10 flex justify-center items-center">
+        <ul>
+            <li><a class="flex gap-3 btn btn-danger" href="/user/logout"><i class="text-xl fa-solid fa-right-from-bracket"></i>Logout</a></li>
+        </ul>
+    </div>
+</div>

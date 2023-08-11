@@ -1,0 +1,19 @@
+{% extends 'views/dashboard.html' %}
+
+{% block user_content %}
+<div class="mb-3">
+    <h2 class="text-4xl text-center">{{ current_page.name }} Page Sections</h2>
+</div>
+<div class="flex flex-col gap-3">
+    {% for s in all_sections %}
+    <div class="border shadow p-3 rounded-lg flex justify-between px-3">
+        <p>{{ s.title.capitalize() }}</p>
+        <a class="btn btn-primary" href="/section/{{ s.id }}">View</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock user_content %}
+
+{#
+
+    #}

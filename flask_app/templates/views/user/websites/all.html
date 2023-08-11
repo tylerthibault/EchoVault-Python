@@ -1,0 +1,17 @@
+
+<div>
+    <div class="grid grid-cols-3 text-center font-bold capitalize">
+        <p>Name</p>
+        <p>Description</p>
+        <p>Actions</p>
+    </div>
+    {% for w in websites %}
+    <div class="grid grid-cols-3 text-center my-2 py-3 border shadow place-items-center">
+        <p>{{ w.name }}</p>
+        <p>{{ w.description }}</p>
+        <div>
+            <a class="btn btn-primary w-fit" href="/website/{{ w.id }}">View</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>

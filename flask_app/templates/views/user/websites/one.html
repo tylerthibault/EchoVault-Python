@@ -1,0 +1,31 @@
+{% extends 'views/dashboard.html' %}
+
+{% block user_content %}
+<div>
+    <div class="grid grid-cols-3 text-center font-bold capitalize">
+        <p>Name</p>
+        <p>Actions</p>
+    </div>
+    {% for p in all_pages %}
+    <div class="grid grid-cols-3 text-center my-2 py-3 border shadow place-items-center">
+        <p>{{ p.name }}</p>
+        <div>
+            <a class="btn btn-primary w-fit" href="/page/{{ p.id }}">View</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock user_content %}
+
+{# 
+    <div class="flex flex-col justify-center items-center">
+        <h2 class="text-4xl mb-3">{{ website.name }}</h2>
+        <div class="flex-1">
+            {% for p in all_pages %}
+                <a href="/page/{{ p.id }}" class="h-[10em] w-[10em] bg-blue-300 flex rounded justify-center items-center">
+                    <p>{{ p.name }} Page</p>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+#}

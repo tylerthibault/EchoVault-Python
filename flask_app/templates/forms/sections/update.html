@@ -1,6 +1,5 @@
-
-
-<form class="{{ style }}" action="/section/{{ s.id }}/update" method="post">
+{% set default_style = 'border border-black' %}
+<form class="{{ style if style else default_style }}" action="/section/{{ s.id }}/update" method="post">
     <div class="col-span-2 form-section">
         <label for="title"></label>
         <input type="text" name="title" id="title" value="{{ s.title }}">

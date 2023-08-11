@@ -23,6 +23,18 @@ def section_update(id):
     section_model.Section.update_one(where={'id':id}, **data)
     return redirect(page_back())
 
+
+@app.route('/section/<int:id>')
+@login_required
+def section_show(id):
+    page_history()
+    context = {
+        'section': section_model.Section.get(id=id)[0]
+    }
+    return render_template('/views/user/sections/show.html', **context)
+
+# API *******************************************
+
 @app.route('/api/section/<int:id>')
 def api_section(id):
     msg = section_model.Section.get(id=id)

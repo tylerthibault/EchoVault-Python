@@ -6,8 +6,8 @@
 {% if user['level'] > 7 %}
 <div class="flex flex-col h-screen">
     <div class="flex justify-between items-center p-3">
-        <h1 class="text-4xl">Echo Vault Dashboard - Admin</h1>
-        {% include 'utilities/navbar.html' %}
+        <h1 class="text-4xl">Echo Vault Dashboard - user</h1>
+        {% include 'utils/navbar.html' %}
     </div>
     <div class="flex-1">
         {% block super_content %}
@@ -17,18 +17,36 @@
 </div>
 
 {% else %}
-<div class="flex flex-col h-screen">
-    <div class="flex justify-between items-center p-3">
-        <h1 class="text-4xl">Echo Vault Dashboard</h1>
-        {% include 'utilities/navbar.html' %}
+<div class="grid grid-cols-12 h-screen">
+    <div class="col-span-1 bg-blue-400">
+        {% include 'utils/sidenav.html' %}
     </div>
-    <div class="flex-1 mx-10">
-        {% block admin_content %}
-        {% include 'views/admin/websites/all.html' %}
-        {% endblock admin_content %}
+    <div class="col-span-11 flex flex-col">
+        <div class="p-3">
+            {% include 'utils/header.html' %}
+        </div>
+        <div class="flex flex-1 gap-3 justify-evenly px-3 pb-3">
+            <div class="w-full">
+                {% block user_content %}
+                    {% include 'views/user/websites/all.html' %}
+                {% endblock user_content %}
+            </div>
+        </div>
     </div>
 </div>
 
 {% endif %}
 
 {% endblock base_content %}
+
+{#
+    <div class="flex justify-between items-center p-3">
+        <h1 class="text-4xl">Echo Vault Dashboard</h1>
+        {% include 'utils/navbar.html' %}
+    </div>
+    <div class="flex-1 mx-10">
+        {% block user_content %}
+        {% include 'views/user/websites/all.html' %}
+        {% endblock user_content %}
+    </div>
+#}

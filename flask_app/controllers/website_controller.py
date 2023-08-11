@@ -37,7 +37,7 @@ def super_website_show(id):
     }
     if session['token']['level'] > super_level:
         return render_template('/views/super/websites/one.html', **context)
-    return render_template('/views/admin/websites/one.html', **context)
+    return render_template('/views/user/websites/one.html', **context)
 
 @app.route('/super/website/<int:id>/delete')
 @super_required
