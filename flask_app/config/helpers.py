@@ -24,7 +24,7 @@ def page_back(qty=1):
     page = request.path
     if 'page_history' not in session:
         session['page_history'] = [page]
-    last_page = ''
+    last_page = '/'
     if len(session['page_history']) > 0:
         for time in range(qty):
             last_page = session['page_history'].pop()
