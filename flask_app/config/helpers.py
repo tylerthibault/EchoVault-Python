@@ -15,9 +15,10 @@ def page_history():
         session['page_history'] = [page]
     else:
         history = session['page_history']
-        if history[-1] != page:
-            history.append(page)
-            session['history'] = history
+        if len(history) > 0:
+            if history[-1] != page:
+                history.append(page)
+                session['history'] = history
 
 def page_back(qty=1):
     if 'page_history' not in session:
