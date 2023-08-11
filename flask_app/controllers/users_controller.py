@@ -32,6 +32,9 @@ def users_login():
     # validate
     if not user_model.User.validate_login(data):
         return redirect('/')
+    
+    if 'remember_me' in data:
+        session['remember_me'] = data['email']
     # redirect
     return redirect('/dashboard')
 

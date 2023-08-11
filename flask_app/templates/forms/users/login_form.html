@@ -1,17 +1,21 @@
 <form action="/users/login" method="post">
     <div class="form-section">
-        <label for="email">email</label>
-        <input type="text" name="email" id="email">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" value="{{ session['remember_me'] }}">
         {% for message in get_flashed_messages(category_filter=['err_users_email_login']) %}
         <p class="err-msg">{{message}}</p>
         {% endfor %}
     </div>
     <div class="form-section">
-        <label for="password">password</label>
-        <input type="text" name="password" id="password">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
         {% for message in get_flashed_messages(category_filter=['err_users_password_login']) %}
         <p class="err-msg">{{message}}</p>
         {% endfor %}
+    </div>
+    <div class="flex gap-3 justify-center">
+        <input class="no-input" type="checkbox" name="remember_me" id="remember_me" {{ 'checked' if session['remember_me'] }}>
+        <label for="remember_me">Remember Me</label>
     </div>
     <div class="form-section">
         <button class="btn-success" type="submit">Login</button>
