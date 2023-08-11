@@ -67,11 +67,12 @@ class User(base_model.Base):
             is_valid = False
 
         if is_valid:
-            potential_user = User.get(email = data['email'])[0]
+            potential_user = User.get(email = data['email'])
             if not potential_user:
                 flash("Invalid Credentials", 'err_users_email_login')
                 is_valid = False
             else:
+                potential_user = potential_user[0]
                 if not bcrypt.check_password_hash(potential_user['password'], data['password']):
                     flash("Invalid Credentials", 'err_users_email_login')
                     is_valid = False
