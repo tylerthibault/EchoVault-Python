@@ -8,6 +8,7 @@ from flask_app.models import website_model
 def index():
     if 'token' in session:
         return redirect('/dashboard')
+
     page_history()
     return render_template('/index.html')
 

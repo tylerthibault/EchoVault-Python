@@ -11,7 +11,6 @@ def super_section_create():
         **request.form,
         'page_id': session['page_id']
             }
-    print(data)
     section_model.Section.create_one(**data)
     return redirect(page_back())
 

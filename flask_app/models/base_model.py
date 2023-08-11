@@ -1,6 +1,8 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-from flask_app import DATABASE
+from flask_app import app
 from flask import flash
+
+DATABASE = app.DB_DATABASE
 
 class Base:
     def __init__(self, data):
@@ -67,24 +69,12 @@ class Base:
         query = f"SELECT * FROM {cls.table_name} WHERE {where_data};"
         # result = connectToMySQL(DATABASE).query_db(query, data)
         results = connectToMySQL(DATABASE).query_db(query, data)
-        print(results)
 
         if not results:
             return []
         
         return results
 
-        # print(result)
-        # if not result:
-        #     print("base model - get function - no record found")
-        #     return False
-        # if len(result) > 1:
-        #     list = []
-        #     for item in result:
-        #         list.append(cls(item))
-        #     return list
-            
-        # return cls(result[0])
 
     @classmethod
     def get_all(cls, where=False, **data):
@@ -139,11 +129,11 @@ class Base:
 
         for key in data:
             if key in cls.required_attributes:
-                print(f"checking key: {key} -> ({data[key]}) on table: {cls.table_name}")
-                print(type(data[key]))
+                # print(f"checking key: {key} -> ({data[key]}) on table: {cls.table_name}")
+                # print(type(data[key]))
                 if type(data[key]) == str:
                     if len(data[key]) < 1:
-                        print("not valid")
+                        # print("not valid")
                         is_valid = False
                         flash("*Field is required", f"err_{cls.table_name}_{key}")
         

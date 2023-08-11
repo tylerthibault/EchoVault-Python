@@ -1,7 +1,6 @@
 from flask import session, request, redirect
 
 def set_token(data):
-    print(f"data: {data}")
     session['token'] = {
         'id': data['id'],
         'first_name': data['first_name'],
@@ -19,7 +18,6 @@ def page_history():
         if history[-1] != page:
             history.append(page)
             session['history'] = history
-        print(page, session['page_history'])
 
 def page_back(qty=1):
     if 'page_history' not in session:
